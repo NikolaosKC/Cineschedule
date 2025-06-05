@@ -1,20 +1,29 @@
-ul {
-    list-style-type: none;
-    margin-right: 10px;
-}
-
-li a {
-    float: right;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding: 10px;
-    background-color: gray;
+.navTextContainer {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 5px;
     font-family: 'Courier New', Courier, monospace;
     font-size: 24pt;
+    float: right;
+    display: flex;
+}
+
+.navButton {
     text-decoration: none;
     color: white;
+    background-color: darkred;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 25px;
+    transition-duration: 0.25s;
+}
+
+.navButton:hover {
+    color: black;
+    background-color: turquoise;
 }
 
 nav {
-    background-color: lightgray;
+    background-color: black;
+    min-height: 150px;
 }
