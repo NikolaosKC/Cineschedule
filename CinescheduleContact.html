@@ -1,7 +1,7 @@
 <html lang="en">
     <header>
         <meta name="author" content="NikolaosKC">
-        <meta name="description" content="Who are the people behind the Cineschedule?">
+        <meta name="description" content="Contact the people behind the Cineschedule.">
         <meta name="keywords" content="movies, film, about">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>About - Cineschedule</title>
@@ -12,31 +12,25 @@
 		<link href="CSS/CinescheduleOverall.css"
 			type="text/css"
 			rel="stylesheet">
-		<link href="CSS/CinescheduleAbout.css"
+		<link href="CSS/CinescheduleContact.css"
 			type="text/css"
 			rel="stylesheet">
         <meta charset="UTF-8">
         <body>
             <div class="container" class="generalTextContainer">
-                <h1>WHO ARE WE?</h1>
+                <h1>CONTACT US!</h1>
                 <br>
-                <img class="centerImage" src="Images/placeholderaboutimage.jpg">
-                <br>
-                <p>I write words here.</p>
-                <div class="teamMembers">
-                    <div class="member1Image">Image1</div>
-                    <div class="member1Name">Name1</div>
-                    <div class="member1Desc">Desc1</div>
-                    <div class="member2Image">Image2</div>
-                    <div class="member2Name">Name2</div>
-                    <div class="member2Desc">Desc2</div>
-                    <div class="member3Image">Image3</div>
-                    <div class="member3Name">Name3</div>
-                    <div class="member3Desc">Desc3</div>
-                    <div class="member4Image">Image4</div>
-                    <div class="member4Name">Name4</div>
-                    <div class="member4Desc">Desc4</div>
-                </div>
+                <form method="POST"> <!-- hides form entries from url -->
+                    <p>Name (required): <br><input type="text" name="formname" size="20" maxlength="50" required="required"></p>
+                    <br>
+                    <p>Email (required): <br><input type="text" name="email" size="20" maxlength="100" required="required"></p>
+                    <br>
+                    <p>Comments (required): <br><textarea name="comments" cols="40" rows="5" required="required"></textarea></p>
+                    <br>
+                    <p>
+                        <input type="submit" value="SUBMIT">
+                    </p>
+                </form>
             </div>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
                 integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"

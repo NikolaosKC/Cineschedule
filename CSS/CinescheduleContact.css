@@ -1,0 +1,13 @@
+input, textarea {
+    border-radius: 25px;
+    background-color: lightgray;
+    transition-duration: 0.25s;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+input:hover, textarea:hover {
+    background-color: white;
+}
