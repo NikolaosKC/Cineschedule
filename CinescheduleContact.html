@@ -1,14 +1,16 @@
 <html lang="en">
     <header>
         <meta name="author" content="NikolaosKC">
-        <meta name="description" content="Contact the people behind the Cineschedule.">
-        <meta name="keywords" content="movies, film, about">
+        <meta name="description" content="Contact the people behind the Cineschedule">
+        <meta name="keywords" content="movies, film, contact">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>About - Cineschedule</title>
+        <title>Contact - Cineschedule</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css"
             rel="stylesheet"
             integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT"
             crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+            rel="stylesheet">
 		<link href="CSS/CinescheduleOverall.css"
 			type="text/css"
 			rel="stylesheet">
@@ -19,7 +21,7 @@
         <body>
             <div class="container" class="generalTextContainer">
                 <h1>CONTACT US!</h1>
-                <br>
+                <hr>
                 <form method="POST"> <!-- hides form entries from url -->
                     <p>Name (required): <br><input type="text" name="formname" size="20" maxlength="50" required="required"></p>
                     <br>
@@ -31,6 +33,43 @@
                         <input type="submit" value="SUBMIT">
                     </p>
                 </form>
+                <hr>
+                <h2>OUR LOCATION</h2>
+                <br>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d615.8922847252395!2d-112.37771159830177!3d33.63349995154152!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x872b44d705903365%3A0xda4438eba3ea2a95!2s16485%20N%20Stadium%20Way%20%231071%2C%20Surprise%2C%20AZ%2085374%2C%20USA!5e1!3m2!1sen!2sgr!4v1749985941927!5m2!1sen!2sgr"
+                    width="600"
+                    height="400"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+                <hr>
+                <h2>SOCIAL MEDIAS</h2>
+                <br>
+                <div class="btn-group d-sm-flex justify-content-center gap-5 d-grid" role="group">
+                    <a href="https://www.twitter.com">
+                        <button type="button" class="btn btn-info py-2 px-2 rounded-3">
+                            <i class="bi bi-twitter display-3 text-white"></i>
+                        </button>
+                    </a>
+                    <a href="https://www.facebook.com">
+                        <button type="button" class="btn btn-primary py-2 px-2 rounded-3">
+                            <i class="bi bi-facebook display-3 text-white"></i>
+                        </button>
+                    </a>
+                    <a href="https://www.youtube.com">
+                        <button type="button" class="btn btn-danger py-2 px-2 rounded-3">
+                            <i class="bi bi-youtube display-3 text-white"></i>
+                        </button>
+                    </a>
+                    <a href="https://www.instagram.com">
+                        <button type="button" class="btn btn-warning py-2 px-2 rounded-3">
+                            <i class="bi bi-instagram display-3 text-white"></i>
+                        </button>
+                    </a>
+                </div>
             </div>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
                 integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
@@ -38,3 +77,30 @@
         </body>
     </header>
 </html>
+
+<!--
+Previous social media button structure:
+
+                <div class="position-relative d-flex gap-5">
+                    <a href="https://www.twitter.com">
+                        <div class="d-inline-block bg-info rounded-3 text-white px-2 py-2">
+                            <i class="bi bi-twitter display-3"></i>
+                        </div>
+                    </a>
+                    <a href="https://www.facebook.com">
+                        <div class="d-inline-block bg-primary rounded-3 text-white px-2 py-2">
+                            <i class="bi bi-facebook display-3"></i>
+                        </div>
+                    </a>
+                    <a href="https://www.facebook.com">
+                        <div class="d-inline-block bg-danger rounded-3 text-white px-2 py-2">
+                            <i class="bi bi-youtube display-3"></i>
+                        </div>
+                    </a>
+                    <a href="https://www.instagram.com">
+                        <div class="d-inline-block bg-warning rounded-3 text-white px-2 py-2">
+                            <i class="bi bi-instagram display-3"></i>
+                        </div>
+                    </a>
+                </div>
+-->

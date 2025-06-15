@@ -15,7 +15,13 @@ body {
     margin: auto;
 }
 
-h1, p {
+hr {
+    color: white;
+    border-width: 5px;
+    margin: 50px;
+}
+
+h1, h2, p {
     color: white;
     text-align: center;
 }
@@ -24,14 +30,21 @@ h1 {
     font-size: 72pt;
 }
 
+h2 {
+    font-size: 48pt;
+}
+
 p {
     font-size: 24pt;
 }
 
+.centerImage, iframe {
+    display: flex;
+    margin: auto;
+}
+
 .centerImage {
     width: 100%;
-    margin: auto;
-    display: flex;
 }
 
 .navTextContainer {

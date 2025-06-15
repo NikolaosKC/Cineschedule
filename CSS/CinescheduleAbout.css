@@ -1,45 +1,22 @@
 .teamMembers {
     display: grid;
     gap: 50px;
+    background-color: dimgray;
     color: white;
     margin: auto;
     text-align: center;
     border: 1px solid white;
 }
 
-.member2Image {
+.member2Image, .member2Name, .member2Desc {
     grid-row-start: 2;
 }
 
-.member2Name {
-    grid-row-start: 2;
-}
-
-.member2Desc {
-    grid-row-start: 2;
-}
-
-.member3Image {
+.member3Image, .member3Name, .member3Desc {
     grid-row-start: 3;
 }
 
-.member3Name {
-    grid-row-start: 3;
-}
-
-.member3Desc {
-    grid-row-start: 3;
-}
-
-.member4Image {
-    grid-row-start: 4;
-}
-
-.member4Name {
-    grid-row-start: 4;
-}
-
-.member4Desc {
+.member4Image, .member4Name, .member4Desc {
     grid-row-start: 4;
 }
         
