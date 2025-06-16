@@ -47,30 +47,6 @@ p {
     width: 100%;
 }
 
-.navTextContainer {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-right: 10px;
-    font-size: 24pt;
-    float: right;
-    display: flex;
-    color: white;
-}
-
-#footerText {
-    margin: 22px;
-}
-
-.navbarFooterImage {
-    height: 100px;
-    border: 2px solid black;
-    transition-duration: 0.25s;
-}
-
-.navbarFooterImage:hover {
-    border: 2px solid white;
-}
-
 input[type=submit] {
 	font-weight: bold;
 	font-family: "Courier New", Courier, monospace;
@@ -81,7 +57,7 @@ input[type=submit] {
     text-decoration: none;
     color: white;
     padding: 10px;
-    margin: 5px;
+    margin: 10px;
     transition-duration: 0.25s;
     border-radius: 25px;
 }
@@ -94,24 +70,4 @@ input[type=submit] {
     color: black;
     background-color: firebrick;
     font-weight: bold;
-}
-
-nav, footer {
-    background-color: darkred;
-    height: 100px;
-}
-
-nav {
-    margin-bottom: 25px;
-    /*margin bottom keeps text a bit away from navbar*/
-	position: sticky;
-	top: 0px; /* keeps navbar at top */
-	left: 0px; /* keeps navbar at far left so it doesn't clip into scroll wheel */
-}
-
-footer {
-    position: absolute;
-    bottom: 0px;
-    left: 0px;
-    width: 100%;
 }

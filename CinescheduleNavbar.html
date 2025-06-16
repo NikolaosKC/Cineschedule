@@ -12,17 +12,28 @@
 		<link href="CSS/CinescheduleOverall.css"
 			type="text/css"
 			rel="stylesheet">
+        <link href="CSS/CinescheduleNavbarFooter.css"
+			type="text/css"
+			rel="stylesheet">
         <meta charset="UTF-8">
-        <nav>
-            <a href="CinescheduleHome.html"><img class="navbarFooterImage" src="Images/CinescheduleLogo.png" alt="Logo of website"></a>
-            <!-- <div class="float-end mt-4 mx-4 fs-2" class="navTextContainer"> -->
-            <div class="navTextContainer">
-                <a href="CinescheduleHome.html" class="navButton">HOME</a>
-                <a href="CinescheduleTasks.html" class="navButton">TASKS</a>
-                <a href="CinescheduleMovies.html" class="navButton">MOVIES</a>
-                <a href="CinescheduleAbout.html" class="navButton">ABOUT</a>
-                <a href="CinescheduleContact.html" class="navButton">CONTACT</a>
+        <nav class="navbar navbar-expand-xl navbar-dark"> <!-- navbar-dark so hamburger is bright on dark background -->
+            <a class="navbar-brand" href="CinescheduleHome.html">
+                <img class="navbarFooterImage" src="Images/CinescheduleLogo.png" alt="Logo of website">
+            </a>
+            <button class="navbar-toggler bg-black me-4" type="button" data-bs-toggle="collapse" data-bs-target="#navTextContainer">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navTextContainer">
+                <div class="navbar-nav ms-auto display-6">
+                    <a href="CinescheduleHome.html" class="navButton">HOME</a>
+                    <a href="CinescheduleTasks.html" class="navButton">TASKS</a>
+                    <a href="CinescheduleMovies.html" class="navButton">MOVIES</a>
+                    <a href="CinescheduleAbout.html" class="navButton">ABOUT</a>
+                    <a href="CinescheduleContact.html" class="navButton">CONTACT</a>
+                </div>
             </div>
+        </nav>
+
         </nav>
         <body>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
@@ -31,3 +42,20 @@
         </body>
     </header>
 </html>
+
+<!--
+Alternative navbar method:
+
+        <nav>
+            <a href="CinescheduleHome.html"><img class="navbarFooterImage" src="Images/CinescheduleLogo.png" alt="Logo of website"></a>
+            alternatively: <div class="float-end mt-4 mx-4 fs-2" class="navTextContainer">
+            <div id="navTextContainer">
+                <a href="CinescheduleHome.html" class="navButton">HOME</a>
+                <a href="CinescheduleTasks.html" class="navButton">TASKS</a>
+                <a href="CinescheduleMovies.html" class="navButton">MOVIES</a>
+                <a href="CinescheduleAbout.html" class="navButton">ABOUT</a>
+                <a href="CinescheduleContact.html" class="navButton">CONTACT</a>
+            </div>
+        </nav>
+
+-->

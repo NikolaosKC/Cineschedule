@@ -1,0 +1,45 @@
+#navTextContainer {
+    /*
+    margin-top: 10px;
+    margin-bottom: 10px;
+    float: right;
+    display: flex;
+    */
+    margin-left: 20px;
+    margin-right: 20px;
+    font-size: 24pt;
+    color: white;
+}
+
+#footerText {
+    margin: 22px;
+}
+
+.navbarFooterImage {
+    height: 100px;
+    border: 2px solid black;
+    transition-duration: 0.25s;
+}
+
+.navbarFooterImage:hover {
+    border: 2px solid white;
+}
+
+nav, footer {
+    background-color: darkred;
+}
+
+nav {
+    margin-bottom: 25px;
+    /*margin bottom keeps text a bit away from navbar*/
+	position: sticky;
+	top: 0px; /* keeps navbar at top */
+	left: 0px; /* keeps navbar at far left so it doesn't clip into scroll wheel */
+}
+
+footer {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+}
