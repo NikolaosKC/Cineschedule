@@ -1,5 +1,6 @@
 <html lang="en">
     <header>
+        <meta charset="UTF-8">
         <meta name="author" content="NikolaosKC">
         <meta name="description" content="Contact the people behind the Cineschedule">
         <meta name="keywords" content="movies, film, contact">
@@ -17,22 +18,27 @@
 		<link href="CSS/CinescheduleContact.css"
 			type="text/css"
 			rel="stylesheet">
-        <meta charset="UTF-8">
+        <script src="JS/CinescheduleOverall.js"
+            type="text/javascript" defer></script>
         <body>
             <div class="container" class="generalTextContainer">
                 <h1 class="display-1">CONTACT US!</h1>
                 <hr>
-                <form method="POST"> <!-- hides form entries from url -->
-                    <p class="display-6">Name (required): <br><input type="text" name="formname" size="20" maxlength="50" required="required"></p>
-                    <br>
-                    <p class="display-6">Email (required): <br><input type="text" name="email" size="20" maxlength="100" required="required"></p>
-                    <br>
-                    <p class="display-6">Comments (required): <br><textarea name="comments" cols="40" rows="5" required="required"></textarea></p>
-                    <br>
-                    <p>
-                        <input type="submit" value="SUBMIT">
-                    </p>
-                </form>
+                <div>
+                    <form method="POST"> <!-- hides form entries from url -->
+                        <p class="display-6">Name (required): <br><input type="text" name="name" id="name" size="20" maxlength="50" required="required"></p>
+                        <br>
+                        <p class="display-6">Email (required): <br><input type="text" name="email" id="email" size="20" maxlength="100" required="required"></p>
+                        <br>
+                        <p class="display-6">Subject (required): <br><input type="text" name="subject" id="subject" size="20" maxlength="100" required="required"></p>
+                        <br>
+                        <p class="display-6">Comments (required): <br><textarea name="comments" id="comments" cols="40" rows="5" required="required"></textarea></p>
+                        <br>
+                        <p>
+                            <input onclick="formValidation()" type="submit" value="SUBMIT">
+                        </p>
+                    </form>
+                </div>
                 <hr>
                 <h2 class="display-2">OUR LOCATION</h2>
                 <br>

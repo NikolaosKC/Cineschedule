@@ -1,4 +1,5 @@
 body {
+    padding-top: 150px;
     padding-bottom: 100px;
     font-family: 'Courier New', Courier, monospace;
     /*padding bottom prevents text from appearing underneath footer and sticks footer to bottom of page*/
@@ -51,10 +52,19 @@ p {
     width: 100%;
 }
 
-input[type=submit] {
-	font-weight: bold;
-	font-family: "Courier New", Courier, monospace;
-    background-color: darkblue;
+table, th, td {
+    background-color: dimgray;
+	text-align: center;
+	border: 1px solid white;
+	margin: auto;
+    color: white;
+    font-weight: lighter;
+    padding:25px;
+}
+
+table {
+	width: 100%;
+    min-height: 25%;
 }
 
 .navButton, input[type=submit] {
@@ -66,12 +76,18 @@ input[type=submit] {
     border-radius: 25px;
 }
 
-.navButton {
-    background-color: black;
-}
-
 .navButton:hover, input[type=submit]:hover {
     color: black;
     background-color: firebrick;
     font-weight: bold;
+}
+
+.navButton {
+    background-color: black;
+}
+
+input[type=submit] {
+	font-weight: bold;
+	font-family: "Courier New", Courier, monospace;
+    background-color: darkblue;
 }

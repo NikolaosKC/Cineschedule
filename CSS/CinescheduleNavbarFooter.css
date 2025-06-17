@@ -29,17 +29,21 @@ nav, footer {
     background-color: darkred;
 }
 
-nav {
-    margin-bottom: 25px;
-    /*margin bottom keeps text a bit away from navbar*/
-	position: sticky;
-	top: 0px; /* keeps navbar at top */
-	left: 0px; /* keeps navbar at far left so it doesn't clip into scroll wheel */
-}
-
 footer {
     position: absolute;
     bottom: 0px;
     left: 0px;
     width: 100%;
 }
+
+/*
+old navbar setup:
+
+nav {
+    margin-bottom: 25px;
+    margin bottom keeps text a bit away from navbar
+	position: sticky;
+	top: 0px; keeps navbar at top
+	left: 0px; keeps navbar at far left so it doesn't clip into scroll wheel
+}
+*/

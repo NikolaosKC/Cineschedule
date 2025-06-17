@@ -1,5 +1,6 @@
 <html lang="en">
     <header>
+        <meta charset="UTF-8">
         <meta name="author" content="NikolaosKC">
         <meta name="description" content="Who are the people behind the Cineschedule?">
         <meta name="keywords" content="movies, film, about">
@@ -15,7 +16,6 @@
 		<link href="CSS/CinescheduleAbout.css"
 			type="text/css"
 			rel="stylesheet">
-        <meta charset="UTF-8">
         <body>
             <div class="container" class="generalTextContainer">
                 <h1>ABOUT US!</h1>
@@ -27,7 +27,7 @@
                 <hr>
                 <h2>WHO ARE WE?</h2>
                 <br>
-                <div class="teamMembers">
+                <div class="teamMembers"> <!-- grid method -->
                     <div class="member1Image">Image1</div>
                     <div class="member1Name">Name1</div>
                     <div class="member1Desc">Desc1</div>
@@ -40,6 +40,38 @@
                     <div class="member4Image">Image4</div>
                     <div class="member4Name">Name4</div>
                     <div class="member4Desc">Desc4</div>
+                </div>
+                <br>
+                <div> <!-- table method -->
+                    <table>
+                        <!--
+                        <tr>
+                            <th scope="col"></th>
+                            <th>Name</th>
+                            <th>Description</th>
+                        </tr>
+                        -->
+                        <tr>
+                            <th>Image1</th>
+                            <th>Name1</th>
+                            <th>Desc1</th>
+                        </tr>
+                        <tr>
+                            <th>Image2</th>
+                            <th>Name2</th>
+                            <th>Desc2</th>
+                        </tr>
+                        <tr>
+                            <th>Image3</th>
+                            <th>Name3</th>
+                            <th>Desc3</th>
+                        </tr>
+                        <tr>
+                            <th>Image4</th>
+                            <th>Name4</th>
+                            <th>Desc4</th>
+                        </tr>
+                    </table>
                 </div>
                 <hr>
                 <h2>TESTIMONIALS</h2>
