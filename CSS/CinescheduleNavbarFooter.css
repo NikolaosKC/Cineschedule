@@ -12,7 +12,10 @@
 }
 
 #footerText {
-    margin: 22px;
+    margin: 20px;
+    float: right;
+    font-size: 24pt;
+    color: white;
 }
 
 .navbarFooterImage {
