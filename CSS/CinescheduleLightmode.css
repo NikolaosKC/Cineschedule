@@ -16,18 +16,24 @@ table.lightmode, th.lightmode, td.lightmode {
     color: black;
 }
 
-.navButton.lightmode, input[type=submit].lightmode {
+#carouselItem.lightmode {
+    background-color: lightgray;
+}
+
+/*.navButton.lightmode,*/ input[type=submit].lightmode {
     color: black;
 }
 
-.navButton:hover.lightmode, input[type=submit]:hover.lightmode {
+/*.navButton:hover.lightmode,*/ input[type=submit]:hover.lightmode {
     color: white;
     background-color: firebrick;
 }
 
+/*
 .navButton.lightmode {
     background-color: white;
 }
+*/
 
 input[type=submit].lightmode {
     background-color: lightblue;
@@ -43,28 +49,6 @@ input[type=submit].lightmode {
     background-color: lightgray;
     color: black;
     border: 1px solid black;
-}
-
-#lightmodeToggle {
-    border: none;
-    text-decoration: none;
-    color: white;
-    padding: 10px;
-    transition-duration: 0.25s;
-    border-radius: 25px;
-	font-weight: bold;
-	font-family: "Courier New", Courier, monospace;
-    background-color: darkblue;
-    font-size: 24pt;
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    margin: 10px;
-}
-
-#lightmodeToggle:hover {
-    color: black;
-    background-color: white;
 }
 
 #lightmodeToggle.lightmode {

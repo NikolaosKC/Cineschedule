@@ -16,12 +16,19 @@
         <script src="https://code.jquery.com/jquery-3.7.1.js"
             integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
             crossorigin="anonymous" defer></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+            rel="stylesheet">
 		<link href="CSS/CinescheduleOverall.css"
 			type="text/css"
 			rel="stylesheet">
 		<link href="CSS/CinescheduleAbout.css"
 			type="text/css"
 			rel="stylesheet">
+		<link href="CSS/CinescheduleLightmode.css"
+			type="text/css"
+			rel="stylesheet">
+        <script src="JS/CinescheduleOverall.js"
+            type="text/javascript" defer></script>
     </header>
     <body>
         <div class="container" class="generalTextContainer">
@@ -54,8 +61,8 @@
                     <!--
                     <tr>
                         <th scope="col"></th>
-                        <th>Name</th>
-                        <th>Description</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Description</th>
                     </tr>
                     -->
                     <tr>
@@ -90,19 +97,19 @@
                     <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2" aria-label="Testimonial 3"></button>
                 </div>
                 <div class="carousel-inner border border-5 rounded-pill"> <!-- class for all main content I guess -->
-                    <div class="carousel-item bg-secondary active">
+                    <div class="carousel-item active" id="carouselItem">
                         <br>
                         <h3>hell yeah</h3>
                         <p>person 1</p>
                         <br>
                     </div>
-                    <div class="carousel-item bg-secondary">
+                    <div class="carousel-item" id="carouselItem">
                         <br>
                         <h3>cool as heck</h3>
                         <p>person 2</p>
                         <br>
                     </div>
-                    <div class="carousel-item bg-secondary">
+                    <div class="carousel-item" id="carouselItem">
                         <br>
                         <h3>i be backflippin twice fo this</h3>
                         <p>person 3</p>
@@ -118,6 +125,7 @@
                     <span class="visually-hidden-focusable">NEXT</span>
                 </button>
             </div>
+            <button type="button" id="lightmodeToggle"><i class="bi bi-brightness-high-fill"></i></button>
         </div>
     </body>
 </html>
