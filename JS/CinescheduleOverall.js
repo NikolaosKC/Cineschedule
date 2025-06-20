@@ -6,30 +6,75 @@ function contactValidation() {
     let acquiredComments = $("#contactComments").val();
     if (acquiredName != "" && acquiredEmail != "" && acquiredSubject != "" && acquiredComments != "") {
         alert("Form submitted!\nName: " + acquiredName + "\nEmail: " + acquiredEmail + "\nSubject: " + acquiredSubject);
-    }
-}
+    };
+};
 
 function taskValidation() {
     let acquiredName = $("#taskName").val();
     let acquiredDesc = $("#taskDesc").val();
     let acquiredDate = $("#taskDate").val();
     let acquiredPriority = $("#taskPriority").val();
-    console.log(acquiredName);
-    console.log(acquiredDesc);
-    console.log(acquiredDate);
-    console.log(acquiredPriority);
-    console.log(typeof(acquiredName));
-    console.log(typeof(acquiredDesc));
-    console.log(typeof(acquiredDate));
-    console.log(typeof(acquiredPriority));
+    if (acquiredDesc == "") {acquiredDesc = "—"}
+    let taskConfirmation;
+    //console.log(acquiredName);
+    //console.log(acquiredDesc);
+    //console.log(acquiredDate);
+    //console.log(acquiredPriority);
+    //console.log(typeof(acquiredName));
+    //console.log(typeof(acquiredDesc));
+    //console.log(typeof(acquiredDate));
+    //console.log(typeof(acquiredPriority));
     if (acquiredName != "" && acquiredDate != "" && acquiredPriority != "") {
-        if (acquiredDesc == "") {
-            alert("Form submitted!\nName: " + acquiredName + "\nDescription: None\nDate: " + acquiredDate + "\nPriority: " + acquiredPriority);
+        if (acquiredDesc == "—") {
+            taskConfirmation = confirm("Form submitted!\nName: " + acquiredName + "\nDescription: None\nDate: " + acquiredDate + "\nPriority: " + acquiredPriority);
         } else {
-            alert("Form submitted!\nName: " + acquiredName + "\nDescription: " + acquiredDesc + "\nDate: " + acquiredDate + "\nPriority: " + acquiredPriority);
+            taskConfirmation = confirm("Form submitted!\nName: " + acquiredName + "\nDescription: " + acquiredDesc + "\nDate: " + acquiredDate + "\nPriority: " + acquiredPriority + "\n\nAre you sure you want to create this task?");
+        };
+
+        if (taskConfirmation == true) {
+            let taskTable = document.querySelector("#taskTable");
+            let row = taskTable.insertRow(1);
+            let cell = row.insertCell(0);
+            cell.innerText = acquiredName;
+
+            cell = row.insertCell(1);
+            cell.innerText = acquiredDesc;
+
+            cell = row.insertCell(2);
+            cell.innerText = acquiredDate;
+
+            cell = row.insertCell(3);
+            cell.innerText = acquiredPriority;
+
+            cell = row.insertCell(4);
+            cell.innerHTML = "<input type='checkbox'>&nbspComplete<br><br><button type='button' onclick='deleteTask(this)' class='btn bg-danger border border-black border-2 p-1 pt-0 pb-0 text-black'>Delete</button>";
+
+            alert("Task created.");
+        } else {
+            alert("Task cancelled.");
         }
-    }
-}
+    };
+};
+
+function deleteTask(givenRow) {
+    console.log(givenRow);
+    let indexOfGivenRow = givenRow.parentNode.parentNode.rowIndex;
+    //it goes outwards as follows:
+    //givenRow (whatever is within the cell td, in particular the button that activated this function) -->
+    //parentNode (the cell td itself) -->
+    //parentNode (the desired row tr, which we want to delete, that contains the cell td) -->
+    //rowIndex (the position of the given row on the table)
+    //console.log(givenRow.parentNode);
+    //console.log(givenRow.parentNode.parentNode);
+    //console.log(givenRow.parentNode.parentNode.rowIndex);
+    let deleteConfirmation = confirm("Are you sure you want to delete this task?");
+    if (deleteConfirmation == true) {
+        document.querySelector("#tasktable").deleteRow(indexOfGivenRow);
+        alert("Task deleted.");
+    } else {
+        alert("Task not deleted.");
+    };
+};
 
 //loads navbar in other HTML pages
 $(document).ready(function(){

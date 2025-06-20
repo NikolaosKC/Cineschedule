@@ -64,24 +64,28 @@
                     <div id="taskdateHelp" class="form-text">Select priority for task</div>
                 </div>
                 <br>
-                <button type="submit" onclick="taskValidation()" class="btn bg-white text-black w-100">Submit</button>
+                <button type="button" onclick="taskValidation()" class="btn bg-white text-black w-100">Submit</button>
             </form>
             <hr>
             <br>
             <div> <!-- table method -->
-                <table>
+                <table id="taskTable">
                     <tr>
                         <th scope="col">Name</th>
                         <th scope="col">Description</th>
                         <th scope="col">Due Date</th>
+                        <th scope="col">Priority</th>
                         <th scope="col">Status</th>
                     </tr>
+                    <!--
                     <tr>
-                        <th>Name1</th>
-                        <th>Desc1</th>
-                        <th>Date1</th>
-                        <th>Complete/Pending</th>
+                        <td>Name1</td>
+                        <td>Desc1</td>
+                        <td>Date1</td>
+                        <td>Priority1</td>
+                        <td><input type='checkbox'>&nbspComplete<br><br><button type='button' onclick='deleteTask(this)' class='btn bg-danger border border-black border-2 p-1 pt-0 pb-0 text-black'>Delete</button></td>
                     </tr>
+                    -->
                 </table>
             </div>
             <button type="button" id="lightmodeToggle"><i class="bi bi-brightness-high-fill"></i></button>
