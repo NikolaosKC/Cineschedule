@@ -16,8 +16,16 @@ table.lightmode, th.lightmode, td.lightmode {
     color: black;
 }
 
-#carouselItem.lightmode {
+.carousel-item.lightmode, #taskButton.lightmode, #taskContainer.lightmode, .form-text.lightmode {
+    color: black;
+}
+
+.carousel-item.lightmode, #taskButton.lightmode, #taskContainer.lightmode {
     background-color: lightgray;
+}
+
+.carousel-inner.lightmode {
+    border: 5px solid black;
 }
 
 /*.navButton.lightmode,*/ input[type=submit].lightmode {

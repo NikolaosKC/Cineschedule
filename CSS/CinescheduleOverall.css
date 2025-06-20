@@ -1,3 +1,7 @@
+* {
+    transition-duration: 0.25s;
+}
+
 body {
     padding-top: 150px;
     padding-bottom: 100px;
@@ -74,8 +78,16 @@ table {
     min-height: 25%;
 }
 
-#carouselItem {
+.carousel-item, #taskButton, #taskContainer, .form-text {
+    color: white;
+}
+
+.carousel-item, #taskButton, #taskContainer {
     background-color: dimgray;
+}
+
+.carousel-inner {
+    border: 5px solid white;
 }
 
 .navButton, input[type=submit], #lightmodeToggle {
@@ -84,7 +96,6 @@ table {
     color: white;
     padding: 10px;
     margin: 10px;
-    transition-duration: 0.25s;
     border-radius: 25px;
 }
 

@@ -1,8 +1,34 @@
-function formValidation() {
-    /* var name = document.querySelector("#name");
-    console.log(name);
-    alert(name); */
-    alert("Form submitted!");
+function contactValidation() {
+    //let acquiredName = document.querySelector("#username").value; //JS equivalent
+    let acquiredName = $("#contactName").val();
+    let acquiredEmail = $("#contactEmail").val();
+    let acquiredSubject = $("#contactSubject").val();
+    let acquiredComments = $("#contactComments").val();
+    if (acquiredName != "" && acquiredEmail != "" && acquiredSubject != "" && acquiredComments != "") {
+        alert("Form submitted!\nName: " + acquiredName + "\nEmail: " + acquiredEmail + "\nSubject: " + acquiredSubject);
+    }
+}
+
+function taskValidation() {
+    let acquiredName = $("#taskName").val();
+    let acquiredDesc = $("#taskDesc").val();
+    let acquiredDate = $("#taskDate").val();
+    let acquiredPriority = $("#taskPriority").val();
+    console.log(acquiredName);
+    console.log(acquiredDesc);
+    console.log(acquiredDate);
+    console.log(acquiredPriority);
+    console.log(typeof(acquiredName));
+    console.log(typeof(acquiredDesc));
+    console.log(typeof(acquiredDate));
+    console.log(typeof(acquiredPriority));
+    if (acquiredName != "" && acquiredDate != "" && acquiredPriority != "") {
+        if (acquiredDesc == "") {
+            alert("Form submitted!\nName: " + acquiredName + "\nDescription: None\nDate: " + acquiredDate + "\nPriority: " + acquiredPriority);
+        } else {
+            alert("Form submitted!\nName: " + acquiredName + "\nDescription: " + acquiredDesc + "\nDate: " + acquiredDate + "\nPriority: " + acquiredPriority);
+        }
+    }
 }
 
 //loads navbar in other HTML pages
@@ -39,14 +65,16 @@ $(document).ready(function(){
 
     function enableLightmode() { //enables lightmode and changes storage to true
         $("body, hr, h1, h2, h3, p, table, th, td").addClass("lightmode");
-        $(".navButton, .input, :submit, .movieFestivalGrid, .teamMembers, #lightmodeToggle, #carouselItem").addClass("lightmode");
+        $(".navButton, .input, :submit, .movieFestivalGrid, .teamMembers, #lightmodeToggle").addClass("lightmode");
+        $(".carousel-item, #taskButton, #taskContainer, .form-text, .carousel-inner").addClass("lightmode");
         localStorage.setItem("lightmode", "true");
         console.log("Lightmode enabled");
     }
 
     function disableLightmode() { //disables lightmode and changes storage to not true
         $("body, hr, h1, h2, h3, p, table, th, td").removeClass("lightmode");
-        $(".navButton, .input, :submit, .movieFestivalGrid, .teamMembers, #lightmodeToggle, #carouselItem").removeClass("lightmode");
+        $(".navButton, .input, :submit, .movieFestivalGrid, .teamMembers, #lightmodeToggle").removeClass("lightmode");
+        $(".carousel-item, #taskButton, #taskContainer, .form-text, .carousel-inner").removeClass("lightmode");
         localStorage.setItem("lightmode", "false");
         console.log("Lightmode disabled");
     }
@@ -66,9 +94,9 @@ $(document).ready(function(){
 $(document).ready(function(){
     //COOKIES!!!!!!!!!!!
 
-    setCookie("purpose1","test1",365);
-    setCookie("purpose2","test2",365);
-    setCookie("purpose3","test3",365);
+    //setCookie("purpose1","test1",365);
+    //setCookie("purpose2","test2",365);
+    //setCookie("purpose3","test3",365);
     //console.log(getCookie("purpose1"));
     //console.log(getCookie("purpose2"));
     //console.log(getCookie("purpose3"));
@@ -94,16 +122,15 @@ $(document).ready(function(){
             }
         }
 
-        /* uses forEach, but I prefer for loop for some reason
-        let result = null;
-        cookieArray.forEach(function(element) {
-            console.log(element.indexOf(name));
-            if (element.indexOf(name) == 0){
-                result = element.substring(name.length + 1);
-            }
-        })
-        return result;
-        */
+        //uses forEach, but I prefer for loop for some reason
+        //let result = null;
+        //cookieArray.forEach(function(element) {
+        //    console.log(element.indexOf(name));
+        //    if (element.indexOf(name) == 0){
+        //        result = element.substring(name.length + 1);
+        //    }
+        //})
+        //return result;
     }
 
     function deleteCookie(name) { //nice to have
@@ -121,14 +148,16 @@ $(document).ready(function(){
 
     function enableLightmode() { //enables lightmode and changes cookie to true
         $("body, hr, h1, h2, h3, p, table, th, td").addClass("lightmode");
-        $(".navButton, .input, :submit, .movieFestivalGrid, .teamMembers, #lightmodeToggle, #carouselItem").addClass("lightmode");
+        $(".navButton, .input, :submit, .movieFestivalGrid, .teamMembers, #lightmodeToggle").addClass("lightmode");
+        $(".carousel-item, #taskButton, #taskContainer, .form-text, .carousel-inner").addClass("lightmode");
         setCookie("lightmode", "true", 365);
         console.log("Lightmode enabled");
     }
 
     function disableLightmode() { //disables lightmode and changes cookie to not true
         $("body, hr, h1, h2, h3, p, table, th, td").removeClass("lightmode");
-        $(".navButton, .input, :submit, .movieFestivalGrid, .teamMembers, #lightmodeToggle, #carouselItem").removeClass("lightmode");
+        $(".navButton, .input, :submit, .movieFestivalGrid, .teamMembers, #lightmodeToggle").removeClass("lightmode");
+        $(".carousel-item, #taskButton, #taskContainer, .form-text, .carousel-inner").removeClass("lightmode");
         setCookie("lightmode", "false", 365);
         console.log("Lightmode disabled");
     }

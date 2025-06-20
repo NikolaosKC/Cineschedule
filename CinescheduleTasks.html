@@ -31,25 +31,40 @@
         <div class="container" class="generalTextContainer">
             <h1>THE TASK LIST</h1>
             <hr>
-            <button type="button" class="btn btn-secondary rounded-5 btn-lg w-100" data-bs-toggle="collapse" data-bs-target="#formContainer">
+            <button type="button" id="taskButton" class="btn rounded-5 btn-lg w-100" data-bs-toggle="collapse" data-bs-target="#taskContainer">
                 Insert Task
             </button>
-            <form class="collapse p-3 rounded-5 mt-1 text-white bg-secondary" id="formContainer">
+            <form class="collapse p-3 rounded-5 mt-1" id="taskContainer">
                 <div>
-                    <label for="taskname" class="form-label">Task name*</label>
-                    <input type="text" class="form-control" id="taskname" required="required" placeholder="Film Task">
+                    <label for="taskName" class="form-label">Task name*</label>
+                    <input type="text" class="form-control" id="taskName" required="required" placeholder="Film Task">
                     <div id="tasknameHelp" class="form-text">Insert name for task</div>
                 </div>
+                <br>
                 <div>
-                    <label for="taskdesc" class="form-label">Description (optional)</label>
-                    <textarea class="form-control" id="taskdesc" rows="5"></textarea>
+                    <label for="taskDesc" class="form-label">Description (optional)</label>
+                    <textarea class="form-control" id="taskDesc" rows="5"></textarea>
                     <div id="taskdescHelp" class="form-text">Insert description for task</div>
                 </div>
+                <br>
                 <div>
-                    <label for="taskdate" class="form-label">Due Date*</label>
-                    <input type="date" class="form-control" id="taskdate" required="required">
+                    <label for="taskDate" class="form-label">Due Date*</label>
+                    <input type="date" class="form-control" id="taskDate" required="required">
                     <div id="taskdateHelp" class="form-text">Select latest date for task</div>
                 </div>
+                <br>
+                <div>
+                    <label for="taskPriority" class="form-label">Priority*</label>
+                    <select class="form-select" id="taskPriority" required>
+                        <option value="" class="bg-black text-white" selected>Select Priority</option>
+                        <option value="Mild" class="bg-success text-white">Mild</option>
+                        <option value="Moderate" class="bg-warning text-white">Moderate</option>
+                        <option value="Severe" class="bg-danger text-white">Severe</option>
+                    </select>
+                    <div id="taskdateHelp" class="form-text">Select priority for task</div>
+                </div>
+                <br>
+                <button type="submit" onclick="taskValidation()" class="btn bg-white text-black w-100">Submit</button>
             </form>
             <hr>
             <br>
