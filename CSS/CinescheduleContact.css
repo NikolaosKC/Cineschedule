@@ -11,3 +11,9 @@ input, textarea {
 input:hover, textarea:hover {
     background-color: white;
 }
+
+#googleMapContainer {
+    width: 50vw;
+    display: flex;
+    margin: auto;
+}

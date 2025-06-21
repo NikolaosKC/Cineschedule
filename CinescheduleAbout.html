@@ -31,17 +31,19 @@
             type="text/javascript" defer></script>
     </header>
     <body>
+        <div id="deliverNavbarFooter"></div>
         <div class="container" class="generalTextContainer">
-            <h1>ABOUT US!</h1>
+            <h1 class="display-1">ABOUT US!</h1>
             <hr>
             <br>
             <img class="centerImage" src="Images/placeholderaboutimage.jpg">
             <br>
             <p>I write words here.</p>
             <hr>
-            <h2>WHO ARE WE?</h2>
+            <h2 class="display-2">WHO ARE WE?</h2>
             <br>
-            <div class="teamMembers"> <!-- grid method -->
+            <!--
+            <div class="teamMembers"> grid method
                 <div class="member1Image">Image1</div>
                 <div class="member1Name">Name1</div>
                 <div class="member1Desc">Desc1</div>
@@ -55,6 +57,7 @@
                 <div class="member4Name">Name4</div>
                 <div class="member4Desc">Desc4</div>
             </div>
+            -->
             <br>
             <div> <!-- table method -->
                 <table>
@@ -88,11 +91,11 @@
                 </table>
             </div>
             <hr>
-            <h2>TESTIMONIALS</h2>
+            <h2 class="display-2">TESTIMONIALS</h2>
             <br>
             <div id="testimonialCarousel" class="carousel slide"> <!-- data-bs-ride="carousel" for autoscroll -->
                 <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active" aria-label="Testimonial 1"></button>
+                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Testimonial 1"></button>
                     <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1" aria-label="Testimonial 2"></button>
                     <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2" aria-label="Testimonial 3"></button>
                 </div>
@@ -117,15 +120,15 @@
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon"></span>
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden-focusable">PREVIOUS</span>
                 </button>
                 <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
-                    <span class="carousel-control-next-icon"></span>
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden-focusable">NEXT</span>
                 </button>
             </div>
-            <button type="button" id="lightmodeToggle"><i class="bi bi-brightness-high-fill"></i></button>
         </div>
+        <button type="button" id="lightmodeToggle" aria-label="lightmode"><i class="bi bi-brightness-high-fill"></i></button>
     </body>
 </html>

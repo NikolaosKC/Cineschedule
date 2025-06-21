@@ -1,14 +1,23 @@
 * {
     transition-duration: 0.25s;
+	word-wrap: break-word;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    color: white;
 }
 
 body {
     padding-top: 150px;
-    padding-bottom: 100px;
+    padding-bottom: 150px;
     /*padding top prevents text from appearing underneath navbar*/
     /*padding bottom prevents text from appearing underneath footer*/
     font-family: 'Courier New', Courier, monospace;
-	word-wrap: break-word;
 	margin: auto;
 	position: relative;
     /*background-image: url("../Images/CinescheduleBackground.jpg");*/
@@ -28,7 +37,7 @@ hr {
     margin: 50px;
 }
 
-h1, h2, h3, p {
+h1, h2, h3, p, label.notBootstrap {
     color: white;
     text-align: center;
 }
@@ -45,8 +54,12 @@ h3 {
     font-size: 36pt;
 }
 
-p, #lightmodeToggle {
+p, #lightmodeToggle, label.notBootstrap {
     font-size: 24pt;
+}
+
+label.notBootstrap {
+    display: block;
 }
 
 .centerImage, iframe {
@@ -78,11 +91,11 @@ table {
     min-height: 25%;
 }
 
-.carousel-item, #taskButton, #taskContainer, .form-text {
+.carousel-item, #taskFormButton, #taskFormContainer, .form-text {
     color: white;
 }
 
-.carousel-item, #taskButton, #taskContainer {
+.carousel-item, #taskFormButton, #taskFormContainer {
     background-color: dimgray;
 }
 
@@ -90,13 +103,16 @@ table {
     border: 5px solid white;
 }
 
-.navButton, input[type=submit], #lightmodeToggle {
+.navButton, input[type=submit], #lightmodeToggle, .bodyPageLink {
     border: 1px solid black;
     text-decoration: none;
-    color: white;
     padding: 10px;
     margin: 10px;
     border-radius: 25px;
+}
+
+.navButton, input[type=submit], #lightmodeToggle {
+    color: white;
 }
 
 .navButton:hover, input[type=submit]:hover {
@@ -124,4 +140,15 @@ input[type=submit], #lightmodeToggle {
 #lightmodeToggle:hover {
     color: black;
     background-color: white;
+}
+
+.bodyPageLink {
+    background-color: white;
+    color: black;
+}
+
+.bodyPageLink:hover {
+    background-color: black;
+    color: white;
+    border: 1px solid white;
 }

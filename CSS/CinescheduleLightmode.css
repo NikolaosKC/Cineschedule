@@ -2,11 +2,20 @@ body.lightmode {
     background-image: linear-gradient(white, lightblue);
 }
 
+a.lightmode {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover.lightmode {
+    color: black;
+}
+
 hr.lightmode {
     color: black;
 }
 
-h1.lightmode, h2.lightmode, h3.lightmode, p.lightmode {
+h1.lightmode, h2.lightmode, h3.lightmode, p.lightmode, label.notBootstrap.lightmode {
     color: black;
 }
 
@@ -16,11 +25,11 @@ table.lightmode, th.lightmode, td.lightmode {
     color: black;
 }
 
-.carousel-item.lightmode, #taskButton.lightmode, #taskContainer.lightmode, .form-text.lightmode {
+.carousel-item.lightmode, #taskFormButton.lightmode, #taskFormContainer.lightmode, .form-text.lightmode {
     color: black;
 }
 
-.carousel-item.lightmode, #taskButton.lightmode, #taskContainer.lightmode {
+.carousel-item.lightmode, #taskFormButton.lightmode, #taskFormContainer.lightmode {
     background-color: lightgray;
 }
 
@@ -67,4 +76,15 @@ input[type=submit].lightmode {
 #lightmodeToggle:hover.lightmode {
     color: white;
     background-color: black;
+}
+
+.bodyPageLink.lightmode {
+    background-color: black;
+    color: white;
+}
+
+.bodyPageLink:hover.lightmode {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
 }

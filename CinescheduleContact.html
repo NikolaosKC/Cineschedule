@@ -32,19 +32,19 @@
         <!-- <iframe src="CinescheduleNavbar.html" width="100%" style="border:none"></iframe> -->
     </header>
     <body>
-        <!-- <div id="deliverNavbar" crossorigin="anonymous"></div> -->
+        <div id="deliverNavbarooter"></div>
         <div class="container" class="generalTextContainer">
             <h1 class="display-1">CONTACT US</h1>
             <hr>
             <div>
                 <form id="contactForm" method="POST"> <!-- hides form entries from url -->
-                    <p class="display-6">Name* <br><input type="text" name="contactName" id="contactName" size="20" maxlength="50" required="required"></p>
+                    <label for="contactName" class="notBootstrap" class="display-6">Name*</label><input type="text" class="form-control" name="contactName" id="contactName" size="20" maxlength="50" required="required">
                     <br>
-                    <p class="display-6">Email* <br><input type="text" name="contactEmail" id="contactEmail" size="20" maxlength="100" required="required"></p>
+                    <label for="contactEmail" class="notBootstrap" class="display-6">Email*</label><input type="text" class="form-control" name="contactEmail" id="contactEmail" size="20" maxlength="100" required="required">
                     <br>
-                    <p class="display-6">Subject* <br><input type="text" name="contactSubject" id="contactSubject" size="20" maxlength="50" required="required"></p>
+                    <label for="contactSubject" class="notBootstrap" class="display-6">Subject*</label><input type="text" class="form-control" name="contactSubject" id="contactSubject" size="20" maxlength="50" required="required">
                     <br>
-                    <p class="display-6">Comments* <br><textarea name="contactComments" id="contactComments" cols="40" rows="5" required="required"></textarea></p>
+                    <label for="contactComments" class="notBootstrap" class="display-6">Comments*</label><textarea class="form-control" name="contactComments" id="contactComments" cols="40" rows="5" required="required"></textarea>
                     <br>
                     <p>
                         <input onclick="contactValidation()" type="submit" id="submit" value="SUBMIT">
@@ -54,42 +54,45 @@
             <hr>
             <h2 class="display-2">OUR LOCATION</h2>
             <br>
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d615.8922847252395!2d-112.37771159830177!3d33.63349995154152!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x872b44d705903365%3A0xda4438eba3ea2a95!2s16485%20N%20Stadium%20Way%20%231071%2C%20Surprise%2C%20AZ%2085374%2C%20USA!5e1!3m2!1sen!2sgr!4v1749985941927!5m2!1sen!2sgr"
-                width="600"
-                height="400"
-                style="border:0;"
-                allowfullscreen=""
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
+            <div id="googleMapContainer">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d615.8922847252395!2d-112.37771159830177!3d33.63349995154152!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x872b44d705903365%3A0xda4438eba3ea2a95!2s16485%20N%20Stadium%20Way%20%231071%2C%20Surprise%2C%20AZ%2085374%2C%20USA!5e1!3m2!1sen!2sgr!4v1749985941927!5m2!1sen!2sgr"
+                    width="600"
+                    height="400"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    aria-label="Cineschedule location on embedded Google Maps frame">
+                </iframe>
+            </div>
             <hr>
             <h2 class="display-2">SOCIAL MEDIAS</h2>
             <br>
             <div class="btn-group d-sm-flex justify-content-center gap-5 d-grid" role="group">
                 <a href="https://www.twitter.com">
-                    <button type="button" class="btn btn-info py-2 px-2 rounded-3">
+                    <button type="button" class="btn btn-info py-2 px-2 rounded-3" aria-label="Twitter / X">
                         <i class="bi bi-twitter display-3 text-white"></i>
                     </button>
                 </a>
                 <a href="https://www.facebook.com">
-                    <button type="button" class="btn btn-primary py-2 px-2 rounded-3">
+                    <button type="button" class="btn btn-primary py-2 px-2 rounded-3" aria-label="Facebook">
                         <i class="bi bi-facebook display-3 text-white"></i>
                     </button>
                 </a>
                 <a href="https://www.youtube.com">
-                    <button type="button" class="btn btn-danger py-2 px-2 rounded-3">
+                    <button type="button" class="btn btn-danger py-2 px-2 rounded-3" aria-label="YouTube">
                         <i class="bi bi-youtube display-3 text-white"></i>
                     </button>
                 </a>
                 <a href="https://www.instagram.com">
-                    <button type="button" class="btn btn-warning py-2 px-2 rounded-3">
+                    <button type="button" class="btn btn-warning py-2 px-2 rounded-3" aria-label="Instagram">
                         <i class="bi bi-instagram display-3 text-white"></i>
                     </button>
                 </a>
             </div>
-            <button type="button" id="lightmodeToggle"><i class="bi bi-brightness-high-fill"></i></button>
         </div>
+        <button type="button" id="lightmodeToggle" aria-label="lightmode"><i class="bi bi-brightness-high-fill"></i></button>
     </body>
 </html>
 

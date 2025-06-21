@@ -31,16 +31,19 @@
             type="text/javascript" defer></script>
     </header>
     <body>
+        <div id="deliverNavbarFooter"></div>
         <div class="container" class="generalTextContainer">
-            <h1>WHAT IS AVAILABLE?</h1>
+            <h1 class="display-1">WHAT IS AVAILABLE?</h1>
             <hr>
-            <h2>MOVIES</h2>
+            <h2 class="display-2">NEW RELEASES</h2>
             <br>
+            <!--
             <div class="movieFestivalGrid">
                 <div class="poster1">poster1</div>
                 <div class="poster2">poster2</div>
                 <div class="poster3">poster3</div>
             </div>
+            -->
             <br>
             <div> <!-- table method -->
                 <table>
@@ -52,13 +55,15 @@
                 </table>
             </div>
             <hr>
-            <h2>FESTIVALS</h2>
+            <h2 class="display-2">LIMITED RELEASES</h2>
             <br>
+            <!--
             <div class="movieFestivalGrid">
                 <div class="poster1">poster1</div>
                 <div class="poster2">poster2</div>
                 <div class="poster3">poster3</div>
             </div>
+            -->
             <br>
             <div> <!-- table method -->
                 <table>
@@ -69,7 +74,27 @@
                     </tr>
                 </table>
             </div>
-            <button type="button" id="lightmodeToggle"><i class="bi bi-brightness-high-fill"></i></button>
+            <hr>
+            <h2 class="display-2">FESTIVALS</h2>
+            <br>
+            <!--
+            <div class="movieFestivalGrid">
+                <div class="poster1">poster1</div>
+                <div class="poster2">poster2</div>
+                <div class="poster3">poster3</div>
+            </div>
+            -->
+            <br>
+            <div> <!-- table method -->
+                <table>
+                    <tr>
+                        <td>Festival1</td>
+                        <td>Festival2</td>
+                        <td>Festival3</td>
+                    </tr>
+                </table>
+            </div>
         </div>
+        <button type="button" id="lightmodeToggle" aria-label="lightmode"><i class="bi bi-brightness-high-fill"></i></button>
     </body>
 </html>

@@ -28,47 +28,53 @@
             type="text/javascript" defer></script>
     </header>
     <body>
-        <div class="container" class="generalTextContainer">
-            <h1>THE TASK LIST</h1>
+        <div id="deliverNavbarFooter"></div>
+        <div class="container" class="generalTextContainer" method="POST">
+            <h1 class="display-1">THE TASK LIST</h1>
             <hr>
-            <button type="button" id="taskButton" class="btn rounded-5 btn-lg w-100" data-bs-toggle="collapse" data-bs-target="#taskContainer">
+            <button type="button" id="taskFormButton" class="btn rounded-5 btn-lg w-100" data-bs-toggle="collapse" data-bs-target="#taskFormContainer" aria-expanded="false" aria-controls="taskFormContainer">
                 Insert Task
             </button>
-            <form class="collapse p-3 rounded-5 mt-1" id="taskContainer">
+            <form class="collapse p-3 rounded-5 mt-1" id="taskFormContainer" method="POST">
                 <div>
                     <label for="taskName" class="form-label">Task name*</label>
-                    <input type="text" class="form-control" id="taskName" required="required" placeholder="Film Task">
-                    <div id="tasknameHelp" class="form-text">Insert name for task</div>
+                    <input type="text" class="form-control" id="taskName" required="required" placeholder="Film Task" aria-describedby="taskNameHelp">
+                    <div id="taskNameHelp" class="form-text">Insert name for task</div>
                 </div>
                 <br>
                 <div>
                     <label for="taskDesc" class="form-label">Description (optional)</label>
-                    <textarea class="form-control" id="taskDesc" rows="5"></textarea>
-                    <div id="taskdescHelp" class="form-text">Insert description for task</div>
+                    <textarea class="form-control" id="taskDesc" rows="5" aria-describedby="taskDescHelp"></textarea>
+                    <div id="taskDescHelp" class="form-text">Insert description for task</div>
                 </div>
                 <br>
                 <div>
                     <label for="taskDate" class="form-label">Due Date*</label>
-                    <input type="date" class="form-control" id="taskDate" required="required">
-                    <div id="taskdateHelp" class="form-text">Select latest date for task</div>
+                    <input type="date" class="form-control" id="taskDate" required="required" aria-describedby="taskDateHelp">
+                    <div id="taskDateHelp" class="form-text">Select latest date for task</div>
                 </div>
                 <br>
                 <div>
                     <label for="taskPriority" class="form-label">Priority*</label>
-                    <select class="form-select" id="taskPriority" required>
+                    <select class="form-select" id="taskPriority" required aria-describedby="taskPriorityHelp">
                         <option value="" class="bg-black text-white" selected>Select Priority</option>
                         <option value="Mild" class="bg-success text-white">Mild</option>
                         <option value="Moderate" class="bg-warning text-white">Moderate</option>
                         <option value="Severe" class="bg-danger text-white">Severe</option>
                     </select>
-                    <div id="taskdateHelp" class="form-text">Select priority for task</div>
+                    <div id="taskPriorityHelp" class="form-text">Select priority for task</div>
                 </div>
                 <br>
                 <button type="button" onclick="taskValidation()" class="btn bg-white text-black w-100">Submit</button>
             </form>
             <hr>
             <br>
-            <div> <!-- table method -->
+            <button type="button" id="saveTable" class="btn bg-success text-white w-100">Save Changes</button>
+            <br><br>
+            <button type="button" id="resetTable" class="btn bg-danger text-white w-100">Reset Table</button>
+            <hr>
+            <br>
+            <div id="taskTableContainer"> <!-- table method -->
                 <table id="taskTable">
                     <tr>
                         <th scope="col">Name</th>
@@ -83,13 +89,13 @@
                         <td>Desc1</td>
                         <td>Date1</td>
                         <td>Priority1</td>
-                        <td><input type='checkbox'>&nbspComplete<br><br><button type='button' onclick='deleteTask(this)' class='btn bg-danger border border-black border-2 p-1 pt-0 pb-0 text-black'>Delete</button></td>
+                        <td><input type='checkbox'>&nbspComplete<br><br><button type='button' onclick='deleteTask(this)' class='btn bg-danger border border-black border-2 p-1 pt-0 pb-0 text-white'>Delete</button></td>
                     </tr>
                     -->
                 </table>
             </div>
-            <button type="button" id="lightmodeToggle"><i class="bi bi-brightness-high-fill"></i></button>
         </div>
+        <button type="button" id="lightmodeToggle" aria-label="lightmode"><i class="bi bi-brightness-high-fill"></i></button>
     </body>
 </html>
 
