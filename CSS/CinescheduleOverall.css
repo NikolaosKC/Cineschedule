@@ -96,18 +96,6 @@ table {
     min-height: 25%;
 }
 
-.carousel-item, #taskFormButton, #taskFormContainer, .form-text {
-    color: white;
-}
-
-.carousel-item, #taskFormButton, #taskFormContainer {
-    background-color: dimgray;
-}
-
-.carousel-inner {
-    border: 5px solid white;
-}
-
 .navButton, input[type=submit], #lightmodeToggle, .bodyPageLink {
     border: 1px solid black;
     text-decoration: none;
