@@ -1,0 +1,137 @@
+<html lang="en">
+    <header>
+        <meta charset="UTF-8">
+        <meta name="author" content="NikolaosKC">
+        <meta name="description" content="Reporting the development of the Cineschedule.">
+        <meta name="keywords" content="movies, film, report, documentation">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Report - Cineschedule</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+            crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+            crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.7.1.js"
+            integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+            crossorigin="anonymous"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+            rel="stylesheet">
+		<link href="CSS/CinescheduleOverall.css"
+			type="text/css"
+			rel="stylesheet">
+		<link href="CSS/CinescheduleLightmode.css"
+			type="text/css"
+			rel="stylesheet">
+        <link href="CSS/CinescheduleNavbarFooter.css"
+			type="text/css"
+			rel="stylesheet">
+        <script src="JS/CinescheduleOverall.js"
+            type="text/javascript" defer></script>
+        <nav class="navbar fixed-top navbar-expand-xxl navbar-dark"> <!-- navbar-dark so hamburger is bright on dark background -->
+            <a class="navbar-brand d-sm-inline d-none" href="CinescheduleHome.html">
+                <img class="navbarFooterImage" src="Images/CinescheduleLogo.png" alt="Cineschedule Logo, click to return to homepage">
+            </a>
+            <button class="navbar-toggler bg-black ms-auto me-4" type="button" data-bs-toggle="collapse" data-bs-target="#navTextContainer" aria-expanded="false" aria-controls="navTextContainer" aria-label="Toggle navigation menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navTextContainer">
+                <div class="navbar-nav ms-auto display-6">
+                    <a href="CinescheduleHome.html" class="navButton">HOME</a>
+                    <a href="CinescheduleTasks.html" class="navButton">TASKS</a>
+                    <a href="CinescheduleMovies.html" class="navButton">MOVIES</a>
+                    <a href="CinescheduleAbout.html" class="navButton">ABOUT</a>
+                    <a href="CinescheduleContact.html" class="navButton">CONTACT</a>
+                    <a href="CinescheduleReport.html" class="navButton">REPORT</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <body>
+        <!-- <div id="deliverNavbarFooter"></div> -->
+        <div class="container" class="generalTextContainer">
+            <p>The Cineschedule page is a beast not only to get running, but to create. Much toil and trouble was required to create the Tasks page, especially regarding the JavaScript/JQuery involved.</p>
+            <p>A dropdown menu was created with Bootstrap and customized with CSS to permit lightmode changes, which will not be detailed in this report, though it uses similar methods to the task table in terms of storing information.</p>
+            <img class="centerImage" src="Images/TaskFormScreenshot.jpg" alt="Screenshot of the Task form in the Tasks webpage">
+            <p>Once the form entries are filled, particularly the “Task name”, “Due Date”, and “Priority” fields, and the Submit button is clicked, all fields are extracted with JavaScript/JQuery, including the description (even if it is empty).</p>
+            <img class="centerImage" src="Images/Report1.jpg" alt="Screenshot of the extraction of the Task form data">
+            <p>A confirmation alert will appear with the extracted information.</p>
+            <img class="centerImage" src="Images/Report2.jpg" alt="Screenshot of the code of the Task form confirmation alert">
+            <p>Confirming creates a new row with 5 cells, with the first 4 using the extracted information, and the 5th being created with a checkbox and a delete button. Otherwise, row creation is cancelled.</p>
+            <img class="centerImage" src="Images/Report3.jpg" alt="Screenshot of the code for the table row generation">
+            <p>The table appears as follows:</p>
+            <img class="centerImage" src="Images/Report3-1.jpg" alt="Screenshot of the task table">
+            <p>The delete button calls a function that locates the row the button is located in. The argument within the function is the button itself. Its parent node is found (its cell), followed by that one's parent node (the row of the cell), followed by this row's position on the table.</p>
+            <img class="centerImage" src="Images/Report4.jpg" alt="Screenshot of the code that locates the row with the task that is to be deleted">
+            <p>The user is asked to confirm deletion; if confirmed, the specific row is deleted based on its index.</p>
+            <img class="centerImage" src="Images/Report5.jpg" alt="Screenshot of the code of the deletion confirmation">
+            <p>Now the saving method.</p>
+            <p>When the page loads, it checks for any stored table and loads it if it exists.</p>
+            <img class="centerImage" src="Images/Report6.jpg" alt="Screenshot of the code that checks for a stored table to load it">
+            <p>The “Save Changes” and “Reset Table” buttons call parts of the localStorage structure that has been created, which functions flawlessly on Chromium browsers such as Chrome and Edge, but not Firefox (Firefox does not register localStorage changes across webpages). This can be fixed by running on a local server. The reset button will be discussed later.</p>
+            <img class="centerImage" src="Images/Report6-1.jpg" alt="Screenshot of the 'Save Changes' and 'Reset Table' buttons">
+            <p>Immediately when the save button is clicked, the user is asked to confirm table saving. If saving is confirmed, two actions occur.</p>
+            <p>The first action does the following: an array is created with every “Complete” checkbox in the table, whether checked or not. Then, with a for loop, every element in this array is inspected. If a given checkbox has been checked by the user, an attribute is added to it so it remains checked if the page is reloaded. Otherwise, if a checkbox is not checked, or it is no longer checked, the attribute that checks for if a checkbox is checked is removed.</p>
+            <img class="centerImage" src="Images/Report7.jpg" alt="Screenshot of the code that checks the checked state of all completion checkboxes in order to save their states">
+            <p>The second action does the following: the entire table is extracted and stored in localStorage. Done. The table is saved. Unless you cancel, in which case nothing is saved.</p>
+            <img class="centerImage" src="Images/Report8.jpg" alt="Screenshot of the code that saves the entire table">
+            <p>The reset button has its own function. It asks for confirmation and warns of its irreversibility. If confirmed, the table is eradicated from localStorage, otherwise nothing happens.</p>
+            <img class="centerImage" src="Images/Report9.jpg" alt="Screenshot of the code that resets the table">
+            <p>That is the end of the overall localStorage structure. Yet, there is more. A statistics section.</p>
+            <img class="centerImage" src="Images/Report9-1.jpg" alt="Screenshot of the task statistics">
+            <p>Within a function called loadStats(), the total rows of the table are counted, with a -1 there to exclude the header row. Then, of all the checkboxes, only the checked ones are counted and included in an array. The length of this array is then determined to find the total checked rows. To find the unchecked rows, the checked rows are subtracted from the total rows. All values are recorded in HTML.</p>
+            <img class="centerImage" src="Images/Report10.jpg" alt="Screenshot of the function that calculates the completed, pending, and total tasks">
+            <p>This function is called both when the page loads and when the “Update Statistics” button is clicked.</p>
+            <img class="centerImage" src="Images/Report11.jpg" alt="Screenshot of the code that calls the statistics function">
+            <p>This is how the Tasks page works.</p>
+            <p>The tasks table also appears in the Home page simply by copying the HTML structures of the save button and table containers from the task page. The same JavaScript file still runs on all pages, and since they have the same IDs, the table should appear as it does in the tasks page.</p>
+            <img class="centerImage" src="Images/Report12.jpg" alt="Screenshot of the HTML code that makes the table appear on the homepage">
+            <p>As for the personal page that was not directly specified (the Movies page), no JavaScript was used. Just a bunch of tables and images.</p>
+            <img class="centerImage" src="Images/Report13.jpg" alt="Screenshot of the HTML code that created the Movies page">
+            <p>All done. Nothing technical left to say.</p>
+            <p>I greatly enjoyed decorating the website. Using CSS and especially Bootstrap was a great deal of fun. I am a wizard, and HTML, CSS, and JavaScript are my robe. They are the basics. The necessities. However, Bootstrap was my staff. I did a great deal of magic with it, and I am proud of what I did. Meanwhile. JQuery was also used, and it was my hat, for it is the brains of the operation. Except my brain is extremely stupid because working with JavaScript and JQuery was easily the most horrid part of this experience. So many questions left unanswered, and so much energy wasted on trying to answer those questions. How do I save things? Cookies? What is localStorage? Why do these methods not work consistently on all browsers? All very fine questions that I had to waste so much energy on not even fully answering. And do you want to know the most perplexing part of it all? The necessity of it all! I could have been taught even the very basics of these saving methods, which is the only way this entire operation would even succeed, since the entire operation hinged on that task table. Instead, all of my energy was spent on learning the basics of these methods. The basics! And even then, so much went unanswered! I was burnt out by the time I began implementing things, so I simply gave up on some things like filtering and sorting. Never implemented them.</p>
+            <p>And to top it all off? I am late to submitting. Let us see how it goes.</p>
+            <p>Thank you for reading.</p>
+            <br>
+            <p>This is the repository for the website:</p>
+            <p><a href="https://github.com/NikolaosKC/Cineschedule">https://github.com/NikolaosKC/Cineschedule</a></p>
+            <br><br><br><br><br>
+            <h2>REFERENCES</h2>
+            <p class="references">Paramount Pictures. (2024). Logo of the 2025 film Mission Impossible: The Final Reckoning [Online Image]. In Wikimedia Commons. 
+                <a href="https://commons.wikimedia.org/wiki/File:Mission_Impossible_The_Final_Reckoning_Logo.png">
+                    https://commons.wikimedia.org/wiki/File:Mission_Impossible_The_Final_Reckoning_Logo.png</a>. Public Domain.</p>
+            <p class="references">RobTop Games. (2013). Geometry Dash Logo [Online Image]. 
+                <a href="https://www.robtopgames.com/">
+                    https://www.robtopgames.com/</a></p>
+        </div>
+        <footer>
+            <div class="btn-group d-flex gap-5 float-start mt-4 ms-4 mb-4" role="group">
+                <a href="https://www.twitter.com">
+                    <button type="button" class="btn btn-info py-2 px-2 rounded-3" aria-label="Twitter / X">
+                        <i class="bi bi-twitter display-6 text-white"></i>
+                    </button>
+                </a>
+                <a href="https://www.facebook.com">
+                    <button type="button" class="btn btn-primary py-2 px-2 rounded-3" aria-label="Facebook">
+                        <i class="bi bi-facebook display-6 text-white"></i>
+                    </button>
+                </a>
+                <a href="https://www.youtube.com">
+                    <button type="button" class="btn btn-danger py-2 px-2 rounded-3" aria-label="YouTube">
+                        <i class="bi bi-youtube display-6 text-white"></i>
+                    </button>
+                </a>
+                <a href="https://www.instagram.com">
+                    <button type="button" class="btn btn-warning py-2 px-2 rounded-3" aria-label="Instagram">
+                        <i class="bi bi-instagram display-6 text-white"></i>
+                    </button>
+                </a>
+            </div>
+            <div class="d-md-inline d-none" class="navTextContainer" id="footerText">
+                &copyCineschedule
+            </div>
+        </footer>
+        <button type="button" id="lightmodeToggle" aria-label="lightmode"><i class="bi bi-brightness-high-fill"></i></button>
+    </body>
+</html>

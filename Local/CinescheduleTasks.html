@@ -1,0 +1,205 @@
+<html lang="en">
+    <header>
+        <meta charset="UTF-8">
+        <meta name="author" content="NikolaosKC">
+        <meta name="description" content="Assigning tasks through the Cineschedule.">
+        <meta name="keywords" content="movies, film, tasks">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tasks - Cineschedule</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+            crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+            crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.7.1.js"
+            integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+            crossorigin="anonymous"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+            rel="stylesheet">
+		<link href="CSS/CinescheduleOverall.css"
+			type="text/css"
+			rel="stylesheet">
+		<link href="CSS/CinescheduleBootstrap.css"
+			type="text/css"
+			rel="stylesheet">
+		<link href="CSS/CinescheduleLightmode.css"
+			type="text/css"
+			rel="stylesheet">
+        <link href="CSS/CinescheduleNavbarFooter.css"
+			type="text/css"
+			rel="stylesheet">
+        <script src="JS/CinescheduleOverall.js"
+            type="text/javascript" defer></script>
+        <nav class="navbar fixed-top navbar-expand-xxl navbar-dark"> <!-- navbar-dark so hamburger is bright on dark background -->
+            <a class="navbar-brand d-sm-inline d-none" href="CinescheduleHome.html">
+                <img class="navbarFooterImage" src="Images/CinescheduleLogo.png" alt="Cineschedule Logo, click to return to homepage">
+            </a>
+            <button class="navbar-toggler bg-black ms-auto me-4" type="button" data-bs-toggle="collapse" data-bs-target="#navTextContainer" aria-expanded="false" aria-controls="navTextContainer" aria-label="Toggle navigation menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navTextContainer">
+                <div class="navbar-nav ms-auto display-6">
+                    <a href="CinescheduleHome.html" class="navButton">HOME</a>
+                    <a href="CinescheduleTasks.html" class="navButton">TASKS</a>
+                    <a href="CinescheduleMovies.html" class="navButton">MOVIES</a>
+                    <a href="CinescheduleAbout.html" class="navButton">ABOUT</a>
+                    <a href="CinescheduleContact.html" class="navButton">CONTACT</a>
+                    <a href="CinescheduleReport.html" class="navButton">REPORT</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <body>
+        <!-- <div id="deliverNavbarFooter"></div> -->
+        <div class="container" class="generalTextContainer" method="POST">
+            <h1 class="display-1">THE TASK LIST</h1>
+            <hr>
+            <button type="button" id="taskFormButton" class="btn rounded-5 btn-lg w-100" data-bs-toggle="collapse" data-bs-target="#taskFormContainer" aria-expanded="false" aria-controls="taskFormContainer">
+                Insert Task
+            </button>
+            <form class="collapse p-3 rounded-5 mt-1" id="taskFormContainer" method="POST">
+                <div>
+                    <label for="taskName" class="form-label">Task Name*</label>
+                    <input type="text" class="form-control" id="taskName" required="required" placeholder="Film Task" aria-describedby="taskNameHelp">
+                    <div id="taskNameHelp" class="form-text">Insert name for task</div>
+                </div>
+                <br>
+                <div>
+                    <label for="taskDesc" class="form-label">Description (optional)</label>
+                    <textarea class="form-control" id="taskDesc" rows="5" aria-describedby="taskDescHelp"></textarea>
+                    <div id="taskDescHelp" class="form-text">Insert description for task</div>
+                </div>
+                <br>
+                <div>
+                    <label for="taskDate" class="form-label">Due Date*</label>
+                    <input type="date" class="form-control" id="taskDate" required="required" aria-describedby="taskDateHelp">
+                    <div id="taskDateHelp" class="form-text">Select due date for task</div>
+                </div>
+                <br>
+                <div>
+                    <label for="taskPriority" class="form-label">Priority*</label>
+                    <select class="form-select" id="taskPriority" required aria-describedby="taskPriorityHelp">
+                        <option value="" class="bg-black text-white" selected>Select Priority</option>
+                        <option value="Mild" class="bg-success text-white">Mild</option>
+                        <option value="Moderate" class="bg-warning text-white">Moderate</option>
+                        <option value="Severe" class="bg-danger text-white">Severe</option>
+                    </select>
+                    <div id="taskPriorityHelp" class="form-text">Select priority level of task</div>
+                </div>
+                <br>
+                <button type="button" onclick="taskValidation()" class="btn bg-white text-black w-100">Submit</button>
+            </form>
+            <hr>
+            <br>
+            <button type="button" id="saveTable" class="btn bg-success text-white w-100">Save Changes</button>
+            <br><br>
+            <button type="button" id="resetTable" class="btn bg-danger text-white w-100">Reset Table</button>
+            <hr>
+            <br>
+            <div id="taskTableContainer"> <!-- table method -->
+                <table id="taskTable">
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Due Date</th>
+                        <th scope="col">Priority</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                    <!--
+                    <tr>
+                        <td>Name1</td>
+                        <td>Desc1</td>
+                        <td>Date1</td>
+                        <td>Priority1</td>
+                        <td><input type='checkbox'>&nbspComplete<br><br><button type='button' onclick='deleteTask(this)' class='btn bg-danger border border-black border-2 p-1 pt-0 pb-0 text-white'>Delete</button></td>
+                    </tr>
+                    -->
+                </table>
+            </div>
+            <br>
+            <hr>
+            <button type="button" id="updateTaskStats" class="btn bg-secondary text-white w-100">Update Statistics</button>
+            <br><br><br>
+            <div id="taskStatsContainer"></div>
+        </div>
+        <footer>
+            <div class="btn-group d-flex gap-5 float-start mt-4 ms-4 mb-4" role="group">
+                <a href="https://www.twitter.com">
+                    <button type="button" class="btn btn-info py-2 px-2 rounded-3" aria-label="Twitter / X">
+                        <i class="bi bi-twitter display-6 text-white"></i>
+                    </button>
+                </a>
+                <a href="https://www.facebook.com">
+                    <button type="button" class="btn btn-primary py-2 px-2 rounded-3" aria-label="Facebook">
+                        <i class="bi bi-facebook display-6 text-white"></i>
+                    </button>
+                </a>
+                <a href="https://www.youtube.com">
+                    <button type="button" class="btn btn-danger py-2 px-2 rounded-3" aria-label="YouTube">
+                        <i class="bi bi-youtube display-6 text-white"></i>
+                    </button>
+                </a>
+                <a href="https://www.instagram.com">
+                    <button type="button" class="btn btn-warning py-2 px-2 rounded-3" aria-label="Instagram">
+                        <i class="bi bi-instagram display-6 text-white"></i>
+                    </button>
+                </a>
+            </div>
+            <div class="d-md-inline d-none" class="navTextContainer" id="footerText">
+                &copyCineschedule
+            </div>
+        </footer>
+        <button type="button" id="lightmodeToggle" aria-label="lightmode"><i class="bi bi-brightness-high-fill"></i></button>
+    </body>
+</html>
+
+<!--
+Other form collapse methods:
+
+            <div class="dropdown">
+                <button type="button" class="btn btn-secondary btn-lg dropdown-toggle" data-bs-toggle="dropdown">
+                    Form
+                </button>
+                <form class="p-3 rounded-5 text-white bg-secondary dropdown-menu">
+                    <div>
+                        <label for="taskname" class="form-label">Task name*</label>
+                        <input type="text" class="form-control" id="taskname" required="required" placeholder="Film Task">
+                        <div id="tasknameHelp" class="form-text">Insert name for task</div>
+                    </div>
+                    <div>
+                        <label for="taskdesc" class="form-label">Description (optional)</label>
+                        <textarea class="form-control" id="taskdesc" rows="5"></textarea>
+                        <div id="taskdescHelp" class="form-text">Insert description for task</div>
+                    </div>
+                    <div>
+                        <label for="taskdate" class="form-label">Due Date*</label>
+                        <input type="date" class="form-control" id="taskdate" required="required">
+                        <div id="taskdateHelp" class="form-text">Select latest date for task</div>
+                    </div>
+                </form>
+            </div>
+            <div>
+                <button type="button" class="p-3 rounded-5 text-white navbar-toggler bg-secondary" data-bs-toggle="collapse" data-bs-target="#formContainer">
+                    Form
+                </button>
+                <form method="POST" class="collapse navbar-collapse p-3 rounded-5 text-white bg-secondary" id="formContainer">
+                    <div>
+                        <label for="taskname" class="form-label">Task name*</label>
+                        <input type="text" class="form-control" id="taskname" required="required" placeholder="Film Task">
+                        <div id="tasknameHelp" class="form-text">Insert name for task</div>
+                    </div>
+                    <div>
+                        <label for="taskdesc" class="form-label">Description (optional)</label>
+                        <textarea class="form-control" id="taskdesc" rows="5"></textarea>
+                        <div id="taskdescHelp" class="form-text">Insert description for task</div>
+                    </div>
+                    <div>
+                        <label for="taskdate" class="form-label">Due Date*</label>
+                        <input type="date" class="form-control" id="taskdate" required="required">
+                        <div id="taskdateHelp" class="form-text">Select latest date for task</div>
+                    </div>
+                </form>
+            </div>
+-->

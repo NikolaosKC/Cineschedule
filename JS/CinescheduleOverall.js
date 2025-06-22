@@ -1,6 +1,5 @@
 //loads navbar in other HTML pages
 $(document).ready(function(){
-    //$("p").css("border", "3px solid red");
     $("#deliverNavbarFooter").load("CinescheduleNavbarFooter.html");
 });
 
@@ -82,202 +81,101 @@ function deleteTask(givenRow) {
     };
 };
 
-//methods of lightmode without localstorage or cookies
+//if($.browser.chrome) {
+    //localStorage saving of lightmode (doesn't work on firefox but I must use it anyway)
+    $(document).ready(function(){
+        let lightmode = localStorage.getItem("lightmode"); //assignment of variable for lightmode storage item for easier writing, with let so it stays in function, all upon page load
+        //console.log("Lightmode on page load:", lightmode);
 
-/*
-$(document).ready(function(){
-    $("#lightmodeAppend").click(function() {
-        $("header").append('<link href="CSS/CinescheduleLightmode.css" type="text/css" rel="stylesheet">');
-    });
-
-    $("#lightmodeToggle").click(function() {
-        $('body, hr, h1, h2, h3, p, table, th, td').toggleClass('lightmode');
-        $('.navButton, .input, :submit, .movieFestivalGrid, .teamMembers, #lightmodeToggle, #carouselItem').toggleClass('lightmode');
-    }
-});
-*/
-
-//localStorage saving of lightmode (doesn't work on firefox but I must use it anyway)
-$(document).ready(function(){
-    let lightmode = localStorage.getItem("lightmode"); //assignment of variable for lightmode storage item for easier writing, with let so it stays in function, all upon page load
-    //console.log("Lightmode on page load:", lightmode);
-
-    if(lightmode === "true") { //checks if true so it enables lightmode on page entry
-        //console.log("Enabled lightmode on page load")
-        enableLightmode();
-    };
-
-    function enableLightmode() { //enables lightmode and changes storage to true
-        $("a, body, hr, h1, h2, h3, p, table, th, td").addClass("lightmode");
-        $("label.notBootstrap, .navButton, .input, .bodyPageLink, :submit, .movieFestivalGrid, .teamMembers, #lightmodeToggle").addClass("lightmode");
-        $(".carousel-item, #taskFormButton, #taskFormContainer, .form-text, .carousel-inner").addClass("lightmode");
-        localStorage.setItem("lightmode", "true");
-        //console.log("Lightmode enabled");
-    }
-
-    function disableLightmode() { //disables lightmode and changes storage to not true
-        $("a, body, hr, h1, h2, h3, p, table, th, td").removeClass("lightmode");
-        $("label.notBootstrap, .navButton, .input, .bodyPageLink, :submit, .movieFestivalGrid, .teamMembers, #lightmodeToggle").removeClass("lightmode");
-        $(".carousel-item, #taskFormButton, #taskFormContainer, .form-text, .carousel-inner").removeClass("lightmode");
-        localStorage.setItem("lightmode", "false");
-        //console.log("Lightmode disabled");
-    }
-
-    $("#lightmodeToggle").click(function() { //button is clicked
-        lightmode = localStorage.getItem("lightmode"); //reassignment upon button click in case page is not reloaded
-        if(lightmode !== "true"){ //if lightmode is off, enable
+        if(lightmode === "true") { //checks if true so it enables lightmode on page entry
+            //console.log("Enabled lightmode on page load")
             enableLightmode();
-        } else { //if lightmode is on, disable
-            disableLightmode();
         };
+
+        function enableLightmode() { //enables lightmode and changes storage to true
+            $("body, hr, h1, h2, h3, p, table, th, td").addClass("lightmode");
+            $("label.notBootstrap, .navButton, .input, .bodyPageLink, :submit, .movieFestivalGrid, .teamMembers, #lightmodeToggle").addClass("lightmode");
+            $(".carousel-item, #taskFormButton, #taskFormContainer, .form-text, .carousel-inner").addClass("lightmode");
+            localStorage.setItem("lightmode", "true");
+            //console.log("Lightmode enabled");
+        };
+
+        function disableLightmode() { //disables lightmode and changes storage to not true
+            $("body, hr, h1, h2, h3, p, table, th, td").removeClass("lightmode");
+            $("label.notBootstrap, .navButton, .input, .bodyPageLink, :submit, .movieFestivalGrid, .teamMembers, #lightmodeToggle").removeClass("lightmode");
+            $(".carousel-item, #taskFormButton, #taskFormContainer, .form-text, .carousel-inner").removeClass("lightmode");
+            localStorage.setItem("lightmode", "false");
+            //console.log("Lightmode disabled");
+        };
+
+        $("#lightmodeToggle").click(function() { //button is clicked
+            lightmode = localStorage.getItem("lightmode"); //reassignment upon button click in case page is not reloaded
+            if(lightmode !== "true"){ //if lightmode is off, enable
+                enableLightmode();
+            } else { //if lightmode is on, disable
+                disableLightmode();
+            };
+        });
     });
-});
 
-//localStorage saving of task table
-$(document).ready(function() {
-    let storedTable = localStorage.getItem("storedTable"); //checks on page load if a table has been previously saved/stored
-    if (storedTable) {
-        document.querySelector("#taskTableContainer").innerHTML = storedTable; //if a stored table exists, load it into HTML
-    }
+    //localStorage saving of task table
+    $(document).ready(function() {
+        let storedTable = localStorage.getItem("storedTable"); //checks on page load if a table has been previously saved/stored
+        if (storedTable) {
+            document.querySelector("#taskTableContainer").innerHTML = storedTable; //if a stored table exists, load it into HTML
+        };
 
-    $("#saveTable").click(function() {
-        let saveConfirmation = confirm("Are you sure you want to save the table?");
-        if (saveConfirmation == true) {
-            let storedTable = document.querySelector("#taskTable").outerHTML; //extract table
-            localStorage.setItem("storedTable", storedTable); //store it with localstorage name storedTable
-            alert("Changes saved.")
-        } else {
-            alert("Changes not saved.")
-        }
-    })
-    
-    $("#resetTable").click(function() {
-        let resetConfirmation = confirm("Are you sure you want to reset the table and erase all tasks?\nThis cannot be reversed.");
-        if (resetConfirmation == true) {
-            localStorage.removeItem("storedTable");
-            alert("Table reset.");
-        } else {
-            alert("Table not reset.");
-        }
-    })
-})
+        $("#saveTable").click(function() {
+            let saveConfirmation = confirm("Are you sure you want to save the table?");
+            if (saveConfirmation == true) {
+                let checkboxList = $("#taskTable input[type='checkbox']"); //lists every checkbox in the task table within an array
+                //console.log(checkboxList);
+                //console.log(checkboxList.length);
+                for (let i = 0; i < checkboxList.length ; i++) {
+                    let currentCheckbox = checkboxList[i]; //each element within this array is inspected
+                    //console.log(currentCheckbox);
+                    //console.log(currentCheckbox.checked);
+                    if (currentCheckbox.checked) {
+                        currentCheckbox.setAttribute("checked", "checked"); //if checked, add attribute checked="checked" to the specific checkbox (checkboxes in this table are by default unchecked)
+                    } else {
+                        currentCheckbox.removeAttribute("checked"); //if unchecked, remove attribute so it is no longer checked
+                    };
+                };
+                
+                let storedTable = document.querySelector("#taskTable").outerHTML; //extract table
+                localStorage.setItem("storedTable", storedTable); //store it with localstorage name storedTable
+                alert("Changes saved.")
+            } else {
+                alert("Changes not saved.")
+            };
+        });
+        
+        $("#resetTable").click(function() {
+            let resetConfirmation = confirm("Are you sure you want to reset the table and erase all tasks?\nThis cannot be reversed.");
+            if (resetConfirmation == true) {
+                localStorage.removeItem("storedTable");
+                alert("Table reset.");
+            } else {
+                alert("Table not reset.");
+            };
+        });
+    });
+//};
 
-/*
-//cookie saving of lightmode (WORKS ON FIREFOX AND I CAN USE THIS FOR !!!ANYTHING!!! but it doesn't work on chromium browsers :( )
 $(document).ready(function(){
-    //COOKIES!!!!!!!!!!!
-
-    //setCookie("purpose1","test1",365);
-    //setCookie("purpose2","test2",365);
-    //setCookie("purpose3","test3",365);
-    //console.log(getCookie("purpose1"));
-    //console.log(getCookie("purpose2"));
-    //console.log(getCookie("purpose3"));
-    
-    function setCookie(name, value, expdays) {
-        const date = new Date(); //variable for current date as object
-        date.setTime(date.getTime() + (expdays*24*60*60*1000)); //obtain current date in milliseconds, then add expiry days in milliseconds
-        let expiresOn = "expires=" + date.toUTCString(); //converts new date to string in UTC so it can be seamlessly integrated into cookie
-        document.cookie = name + "=" + value + ";" + expiresOn + ";path=/; SameSite=Lax; Secure"; //path=/ means can be accessed from any page
+    function loadStats() {
+        let totalRows = (document.querySelector("#taskTable").rows.length) - 1;
+        let checkedRows = document.querySelectorAll("#taskTable input[type='checkbox']:checked").length; //lists every checked checkbox in the task table within an array, then determines this array's length
+        console.log(document.querySelectorAll("#taskTable input[type='checkbox']:checked"));
+        console.log(checkedRows);
+        document.querySelector("#taskStatsContainer").innerHTML =
+            "<p>Completed tasks: " + checkedRows + "</p>"
+                +
+            "<p>Pending tasks: " + (totalRows - checkedRows) + "</p>"
+                +
+            "<p>Total tasks: " + totalRows + "</p>";
     }
 
-    function getCookie(name) {
-        console.log(document.cookie);
-        const cookieArray = document.cookie.split("; ");
-        console.log(cookieArray);
-
-        for (let i=0; i<cookieArray.length; i++) { //i up to length of array, ex. array is 3 length, so i goes from 0-2
-            let currentElement = cookieArray[i]; //let currentElement = current element of array
-            console.log(currentElement.indexOf(name));
-            console.log(currentElement);
-            if (currentElement.indexOf(name) == 0) {
-                return currentElement.substring(name.length + 1); //name.length serves as position of desired substring (the value), +1 to remove = sign after name
-            }
-        }
-
-        //uses forEach, but I prefer for loop for some reason
-        //let result = null;
-        //cookieArray.forEach(function(element) {
-        //    console.log(element.indexOf(name));
-        //    if (element.indexOf(name) == 0){
-        //        result = element.substring(name.length + 1);
-        //    }
-        //})
-        //return result;
-    }
-
-    function deleteCookie(name) { //nice to have
-        setCookie(name, null, null);
-    }
-
-    //lightmode
-    let lightmode = getCookie("lightmode"); //assignment of variable for lightmode cookie for easier writing, with let so it stays in function, all upon page load
-    //console.log("Lightmode on page load:", lightmode);
-
-    if(lightmode === "true") { //checks if true so it enables lightmode on page entry
-        //console.log("Enabled lightmode on page load")
-        enableLightmode();
-    };
-
-    function enableLightmode() { //enables lightmode and changes cookie to true
-        $("body, hr, h1, h2, h3, p, table, th, td").addClass("lightmode");
-        $(".navButton, .input, :submit, .movieFestivalGrid, .teamMembers, #lightmodeToggle").addClass("lightmode");
-        $(".carousel-item, #taskButton, #taskContainer, .form-text, .carousel-inner").addClass("lightmode");
-        setCookie("lightmode", "true", 365);
-        //console.log("Lightmode enabled");
-    }
-
-    function disableLightmode() { //disables lightmode and changes cookie to not true
-        $("body, hr, h1, h2, h3, p, table, th, td").removeClass("lightmode");
-        $(".navButton, .input, :submit, .movieFestivalGrid, .teamMembers, #lightmodeToggle").removeClass("lightmode");
-        $(".carousel-item, #taskButton, #taskContainer, .form-text, .carousel-inner").removeClass("lightmode");
-        setCookie("lightmode", "false", 365);
-        //console.log("Lightmode disabled");
-    }
-
-    $("#lightmodeToggle").click(function() { //button is clicked
-        lightmode = getCookie("lightmode"); //reassignment upon button click in case page is not reloaded
-        if(lightmode !== "true"){ //if lightmode is off, enable
-            enableLightmode();
-        } else { //if lightmode is on, disable
-            disableLightmode();
-        };
-    });
-
-    let savedTable = getCookie("savedTable");
-
-    function saveTable() {
-        setCookie("savedTable", "true", 365);
-    }
-
-    $("#saveTable").click(function() {
-        saveTable();
-    })
+    $(window).on("load", loadStats()); //reloads stats on window load
+    $("#updateTaskStats").click(function() {loadStats()}); //also reloads stats on button click
 });
-*/
-
-/* localstorage version without variable assignment
-$(document).ready(function(){
-    if(localStorage.getItem("lightmode") === "true") {enableLightmode()}; //checks if true so it enables lightmode on page entry
-
-    function enableLightmode() { //enables lightmode and changes storage to true
-        $('body, hr, h1, h2, h3, p, table, th, td').addClass('lightmode');
-        $('.navButton, .input, :submit, .movieFestivalGrid, .teamMembers, #lightmodeToggle, #carouselItem').addClass('lightmode');
-        localStorage.setItem("lightmode", "true")
-    }
-
-    function disableLightmode() { //disables lightmode and changes storage to not true
-        $('body, hr, h1, h2, h3, p, table, th, td').removeClass('lightmode');
-        $('.navButton, .input, :submit, .movieFestivalGrid, .teamMembers, #lightmodeToggle, #carouselItem').removeClass('lightmode');
-        localStorage.setItem("lightmode", "false")
-    }
-
-    $("#lightmodeToggle").click(function() { //button is clicked
-        if(localStorage.getItem("lightmode") !== "true"){ //if lightmode is off, enable
-            enableLightmode();
-        } else { //if lightmode is on, disable
-            disableLightmode();
-        };
-    });
-});
-*/

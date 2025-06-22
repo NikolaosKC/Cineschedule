@@ -2,15 +2,6 @@ body.lightmode {
     background-image: linear-gradient(white, lightblue);
 }
 
-a.lightmode {
-    text-decoration: none;
-    color: white;
-}
-
-a:hover.lightmode {
-    color: black;
-}
-
 hr.lightmode {
     color: black;
 }

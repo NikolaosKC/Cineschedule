@@ -1,0 +1,81 @@
+body.lightmode {
+    background-image: linear-gradient(white, lightblue);
+}
+
+hr.lightmode {
+    color: black;
+}
+
+h1.lightmode, h2.lightmode, h3.lightmode, p.lightmode, label.notBootstrap.lightmode {
+    color: black;
+}
+
+table.lightmode, th.lightmode, td.lightmode {
+    background-color: lightgray;
+	border: 1px solid black;
+    color: black;
+}
+
+.carousel-item.lightmode, #taskFormButton.lightmode, #taskFormContainer.lightmode, .form-text.lightmode {
+    color: black;
+}
+
+.carousel-item.lightmode, #taskFormButton.lightmode, #taskFormContainer.lightmode {
+    background-color: lightgray;
+}
+
+.carousel-inner.lightmode {
+    border: 5px solid black;
+}
+
+/*.navButton.lightmode,*/ input[type=submit].lightmode {
+    color: black;
+}
+
+/*.navButton:hover.lightmode,*/ input[type=submit]:hover.lightmode {
+    color: white;
+    background-color: firebrick;
+}
+
+/*
+.navButton.lightmode {
+    background-color: white;
+}
+*/
+
+input[type=submit].lightmode {
+    background-color: lightblue;
+}
+
+.movieFestivalGrid.lightmode {
+    background-color: lightgray;
+    color: black;
+    border: 1px solid black;
+}
+
+.teamMembers.lightmode {
+    background-color: lightgray;
+    color: black;
+    border: 1px solid black;
+}
+
+#lightmodeToggle.lightmode {
+    background-color: lightblue;
+    color: black;
+}
+
+#lightmodeToggle:hover.lightmode {
+    color: white;
+    background-color: black;
+}
+
+.bodyPageLink.lightmode {
+    background-color: black;
+    color: white;
+}
+
+.bodyPageLink:hover.lightmode {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+}
