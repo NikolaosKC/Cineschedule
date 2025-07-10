@@ -1,10 +1,10 @@
 The Cineschedule website is a peculiar beast that encounters various complications depending on how it is ran.
 Two separate versions of the website are available:
-	1. [NOT RECOMMENDED] The main one, immediately visible in the main branch upon opening the repository, designed to be run on a server, even a local one, and written with far less copy-pasted code.
-	2. [RECOMMENDED] A local version, found in a folder labelled "Local" on the main branch, designed to be run locally from one's device and written with far more copy-pasted code.
+	1. [NOT RECOMMENDED] A server version, found in a folder labelled "Server" on the main branch, designed to be run exclusively on a server, even a local one, and written with far less copy-pasted code.
+	2. [RECOMMENDED] A local version, found in a folder labelled "Local" on the main branch, designed to be run locally from one's device and written with far more copy-pasted code. Can also be ran on a server for wider browser support.
 
 1a.
-	The main version will not function directly from one's device, no matter what browser.
+	The server version will not function directly from one's device, no matter what browser.
 	There is firm dependence on a JQuery method known as .load().
 	This method is used to include/import other HTML files within other HTML files.
 	In my case, I used this method to include the file for the navbar and footer on all other pages.
@@ -35,9 +35,12 @@ Two separate versions of the website are available:
 	This does not work on browsers such as Firefox. Anything stored with localStorage on any one page will not be used on another page.
 	This means that the task table and lightmode settings will not work as intended.
 
-2b.
+2bi.
 	No matter what browser you use for the local version, lots of copy-pasted code is used across multiple pages, particularly for the navbar and footer.
 	This is because a JQuery method I used known as .load() (see 1a) does not work locally, so to compensate, code was copy-pasted.
 	This method only works on servers (see 1bi) and allows for reduced code bloat.
+
+2bii.
 	That being said, as this version of the site is being run locally, any buttons pressed in the navbar and footer respond flawlessly.
 	I strongly recommend this version even if it does not work on Firefox, because it feels better to use.
+	Additionally, if you choose to run this version on a server, localStorage will work properly on all browsers, and no unstable performance will occur, unlike the server version.
