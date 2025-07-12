@@ -1,21 +1,21 @@
-The Cineschedule website is a peculiar beast that encounters various complications depending on how it is ran.
+The Cineschedule website is a peculiar beast that used to encounter various complications depending on how it is ran, but it should be fine now.
 Two separate versions of the website are available:
-	1. [NOT RECOMMENDED] A server version, found in a folder labelled "Server" on the main branch, designed to be run exclusively on a server, even a local one, and written with far less copy-pasted code.
-	2. [RECOMMENDED] A local version, found in a folder labelled "Local" on the main branch, designed to be run locally from one's device and written with far more copy-pasted code. Can also be ran on a server for wider browser support.
+	1. A server version, found in a folder labelled "Server" on the main branch, designed to be run exclusively on a server, even a local one, and written with far less copy-pasted code.
+	2. A local version, found in a folder labelled "Local" on the main branch, designed to be run locally from one's device and written with far more copy-pasted code. Can also be ran on a server for wider browser support.
 
 1a.
 	The server version will not function directly from one's device, no matter what browser.
-	There is firm dependence on a JQuery method known as .load().
-	This method is used to include/import other HTML files within other HTML files.
-	In my case, I used this method to include the file for the navbar and footer on all other pages.
-	This method is blocked when running locally, causing pages to lose CSS and Bootstrap designs.
-	This is because all links to those designs are found only in the navbar/footer file in an attempt to cut down on code bloat.
-	Because .load() is blocked locally, the navbar/footer file becomes inaccessible.
+	It depends on a JQuery method known as .load(), which includes/imports other HTML files within other HTML files.
+	I used this method to include the file for the navbar and footer on all other pages.
+	This method is blocked when running locally, so the navbar/footer file becomes inaccessible.
+	This also means pages lose CSS and Bootstrap designs.
+	This is because all links to those designs are found only in the navbar/footer file, which is blocked, in an attempt to cut down on code bloat.
 
 1bi.
-	A server method is recommended for this version, even if its performance, particularly regarding the navbar and footer as those are imported from other files, is slow and unstable.
-	This is not only because .load() can function through a server, allowing the navbar/footer file and its contents to be accessible.
-	It is also because no matter what storage form is used, whether localStorage or cookies (see 2ai), its contents can be found across all pages on any browser.
+	A server method is recommended for this version.
+	Its performance has been significantly improved by removing JavaScript and JQuery connections from the navbar/footer file and inserting them in all other files.
+	.load() can function through a server, allowing the navbar/footer file and its contents to be accessible.
+	Additionally, no matter what storage form is used, whether localStorage or cookies (see 2ai), saved contents can be found across all pages on any browser.
 
 1bii.
 	In my case, I used a local server.
@@ -27,20 +27,16 @@ Two separate versions of the website are available:
 
 2ai.
 	The local version is best designed for Chromium browsers such as Google Chrome, Microsoft Edge and Opera.
-	This is because instead of cookies, both versions of the website entirely depend on a storage format known as localStorage.
-	Assuming that one is using a Chromium browser, if anything is stored using localStorage on one page, it will also be used on other pages.
+	Instead of cookies, both versions of the website depend on a storage format known as localStorage.
+	Assuming one is using a Chromium browser, if anything is stored using localStorage on one page, it will also be used on other pages.
 	This can be seen with the task table and lightmode setting, the states of which persist on other pages.
 	
 2aii.
 	This does not work on browsers such as Firefox. Anything stored with localStorage on any one page will not be used on another page.
 	This means that the task table and lightmode settings will not work as intended.
+	However, running on a server (see 1b) fixes this problem and allows saved contents to transfer across webpages on any browser.
 
-2bi.
-	No matter what browser you use for the local version, lots of copy-pasted code is used across multiple pages, particularly for the navbar and footer.
+2b.
+	Lots of copy-pasted code is used across multiple pages in this version, particularly to render the navbars and footers.
 	This is because a JQuery method I used known as .load() (see 1a) does not work locally, so to compensate, code was copy-pasted.
 	This method only works on servers (see 1bi) and allows for reduced code bloat.
-
-2bii.
-	That being said, as this version of the site is being run locally, any buttons pressed in the navbar and footer respond flawlessly.
-	I strongly recommend this version even if it does not work on Firefox, because it feels better to use.
-	Additionally, if you choose to run this version on a server, localStorage will work properly on all browsers, and no unstable performance will occur, unlike the server version.
