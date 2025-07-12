@@ -1,4 +1,4 @@
-The Cineschedule website is a peculiar beast that used to encounter various complications depending on how it is ran, but it should be fine now.
+The Cineschedule website is a peculiar beast that used to encounter various complications depending on how it is run, but it should be stable now.
 Two separate versions of the website are available:
 	1. A server version, found in a folder labelled "Server" on the main branch, designed to be run exclusively on a server, even a local one, and written with far less copy-pasted code.
 	2. A local version, found in a folder labelled "Local" on the main branch, designed to be run locally from one's device and written with far more copy-pasted code. Can also be ran on a server for wider browser support.
